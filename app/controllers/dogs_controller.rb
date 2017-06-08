@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
   def index
     @dogs = Dog.all
   end
@@ -19,16 +22,12 @@ class DogsController < ApplicationController
   end
 
   def show
-    @dog = Dog.find(params[:id])
   end
 
   def edit
-    @dog = Dog.find(params[:id])
   end
 
   def update
-    @dog = Dog.find(params[:id])
-
     if @dog.update(dog_params)
       redirect_to dogs_url, notice: "Successfully updated."
     else
@@ -38,7 +37,6 @@ class DogsController < ApplicationController
   end
 
   def destroy
-    @dog = Dog.find(params[:id])
 
     if @dog.destroy
       redirect_to dogs_url, notice: "Successfully destroyed."
@@ -50,7 +48,11 @@ class DogsController < ApplicationController
   private
 
     def dog_params
-      params.require(:dog).permit(:name, :age, :breed)
+      params.require(:dog).permit(:name, :age, :breed, :owner)
+    end
+
+    def set_dog
+      @dog = Dog.find(params[:id])
     end
 
 end
