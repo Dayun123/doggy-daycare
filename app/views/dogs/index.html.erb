@@ -1,7 +1,5 @@
 <h1>All dogs</h1>
 
-<p>New paragaraph</p>
-
 <table>
   <thead>
     <tr>
@@ -15,10 +13,11 @@
     <% @dogs.each do |dog| %>
       <tr>
         <td><%= dog.id %></td>
-        <td><%= dog.name %></td>
+        <td><%= link_to dog.name, dog %></td>
         <td><%= dog.breed %></td>
         <td><%= dog.age %></td>
         <td><%= link_to 'Show', dog %></td>
+        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
       </tr>
     <% end %>
   </tbody>
