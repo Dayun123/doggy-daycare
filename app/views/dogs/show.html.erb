@@ -1,0 +1,25 @@
+<h1>Details for <%= @dog.id %></h1>
+
+<% @dog.attributes.each do |key, value| %>
+  <p>
+    <strong>key</strong><%= value %>
+  </p>
+<% end %>
+
+<p>
+  <strong>ID: </strong><%= @dog.id %>
+</p>
+
+<p>
+  <strong>Breed: </strong><%= @dog.breed %>
+</p>
+
+<p>
+  <strong>Age: </strong><%= @dog.age %>
+</p>
+
+
+<p>
+  <strong>Date Added: </strong><%= @dog.created_at.stamp("December 21, 1985 12:05 am") %>
+</p>
+
