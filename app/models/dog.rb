@@ -1,5 +1,3 @@
 class Dog < ApplicationRecord
-  # validates :name, presence: true
-  # validates :age, presence: true
-  # validates :breed, presence: true
+  belongs_to :owner
 end
