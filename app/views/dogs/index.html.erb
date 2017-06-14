@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @dogs.each do |dog| %>
+    <% @dogs.order(:name).each do |dog| %>
       <tr>
         <td><%= dog.id %></td>
         <td><%= link_to dog.name, dog %></td>
